@@ -1,223 +1,156 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your GitHub | Official Homepage</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crocodile Download</title>
 
-  <style>
-    :root {
-      --bg: #0f1220;
-      --card: #171a2b;
-      --accent: #3cf2a0;
-      --text: #e8e9f1;
-      --muted: #9aa0c3;
-      --danger: #ff5c5c;
-      --radius: 14px;
-    }
+<style>
+:root {
+  --bg: #06140f;
+  --bg-soft: #0b241b;
+  --card: #0f2e24;
+  --accent: #3cff9e;
+  --text: #e5fff3;
+  --muted: #7fbfa3;
+}
 
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #1b2040, var(--bg));
-      color: var(--text);
-      min-height: 100vh;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #0f3a2a, var(--bg)),
+    linear-gradient(180deg, #000, #000);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    header {
-      padding: 3rem 1.5rem 2rem;
-      text-align: center;
-    }
+.main {
+  background: linear-gradient(180deg, #0f2f25, var(--card));
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
 
-    header h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin: 0;
-    }
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
 
-    header p {
-      max-width: 600px;
-      margin: 1rem auto 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem 1.5rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+.download {
+  display: inline-block;
+  background: var(--accent);
+  color: #042015;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 35px rgba(60,255,158,.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
 
-    .card {
-      background: linear-gradient(180deg, #1b1f3a, var(--card));
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    }
+.download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 45px rgba(60,255,158,.5);
+}
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
+.croc-wrap {
+  margin: 2rem auto 1.5rem;
+  width: 260px;
+}
 
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-    }
+/* Buy Me a Coffee */
+.coffee {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
 
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
+.coffee img {
+  width: 36px;
+  height: 36px;
+  transition: transform .2s ease;
+}
 
-    .btn {
-      padding: 0.9rem 1.4rem;
-      border-radius: 999px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #0b0f1c;
-      box-shadow: 0 8px 30px rgba(60, 242, 160, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(60, 242, 160, 0.5);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid #2c315c;
-    }
-
-    .btn-secondary:hover {
-      background: #22265a;
-    }
-
-    .threats {
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .threats span {
-      color: var(--danger);
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    /* Crocodile animation */
-    .croc {
-      max-width: 100%;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-  </style>
+.coffee:hover img {
+  transform: scale(1.08);
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>Your GitHub Projects</h1>
-  <p>
-    Clean code. Questionable ideas. Professionally delivered.
-  </p>
-</header>
+<div class="main">
 
-<main class="container">
+  <h1>Crocodile Release</h1>
+  <p>Download before it notices you hesitating.</p>
 
-  <section class="card hero">
-    <div>
-      <h2>Latest Project</h2>
-      <p>
-        This repository contains my latest work.  
-        It is fast, functional, and may or may not attract the attention of a crocodile.
-      </p>
+  <div class="croc-wrap">
+    <!-- Animated Crocodile SVG -->
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
 
-      <div class="buttons">
-        <!-- CHANGE THIS LINK -->
-        <a class="btn btn-primary"
-           href="https://github.com/funny-threats/crocodile/releases/latest/download/crocodile.zip">
-          ⬇ Download Latest Release
-        </a>
+      <!-- Body -->
+      <ellipse cx="150" cy="120" rx="110" ry="55" fill="#2ecc71"/>
 
-        <!-- CHANGE THIS LINK -->
-        <a class="btn btn-secondary"
-           href="https://github.com/funny-threats">
-          View GitHub
-        </a>
-      </div>
+      <!-- Upper Head -->
+      <ellipse cx="210" cy="90" rx="45" ry="32" fill="#2ecc71"/>
 
-      <div class="threats">
-        Failure to download may result in:
-        <ul>
-          <li><span>•</span> Mild disappointment</li>
-          <li><span>•</span> A crocodile judging you silently</li>
-          <li><span>•</span> Absolutely nothing (but still)</li>
-        </ul>
-      </div>
-    </div>
+      <!-- Eyes -->
+      <circle cx="195" cy="80" r="4" fill="#042015"/>
+      <circle cx="225" cy="80" r="4" fill="#042015"/>
 
-    <!-- Cartoon Crocodile (SVG) -->
-    <svg class="croc" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="110" rx="110" ry="55" fill="#3cf2a0"/>
-      <ellipse cx="210" cy="80" rx="40" ry="30" fill="#3cf2a0"/>
-      <circle cx="225" cy="70" r="5" fill="#0f1220"/>
-      <circle cx="195" cy="70" r="5" fill="#0f1220"/>
-      <path d="M240 90 L290 100 L240 110 Z" fill="#3cf2a0"/>
-      <rect x="110" y="130" width="15" height="30" rx="5" fill="#2ecc71"/>
-      <rect x="150" y="130" width="15" height="30" rx="5" fill="#2ecc71"/>
-      <text x="150" y="190" text-anchor="middle" fill="#0f1220" font-size="12">
-        I guard the releases.
-      </text>
+      <!-- Lower Jaw (animated) -->
+      <g style="transform-origin: 210px 105px; animation: chomp 2s infinite ease-in-out;">
+        <path d="M165 105 Q210 135 255 105" fill="#27ae60"/>
+      </g>
+
+      <!-- Snout -->
+      <polygon points="255,85 295,100 255,115" fill="#2ecc71"/>
+
+      <style>
+        @keyframes chomp {
+          0%, 100% { transform: rotate(0deg); }
+          50% { transform: rotate(12deg); }
+        }
+      </style>
     </svg>
-  </section>
+  </div>
 
-  <section class="card">
-    <h2>About This Page</h2>
-    <p>
-      This site is intentionally simple, statically hosted, and designed to load fast.
-      No trackers. No nonsense. Just projects and a crocodile with authority.
-    </p>
-  </section>
+  <!-- CHANGE DOWNLOAD LINK -->
+  <a class="download"
+     href="https://github.com/funny-threats/crocodile/releases/latest/download/crocodile.zip">
+    Download
+  </a>
 
-</main>
+  <!-- Buy Me a Coffee -->
+  <a class="coffee"
+     href="https://buymeacoffee.com/funnythreats"
+     target="_blank" rel="noopener">
+    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="">
+    Buy me a coffee
+  </a>
 
-<footer>
-  © MR crocodile — Powered by GitHub Pages and mild intimidation
-</footer>
+</div>
 
 </body>
 </html>
